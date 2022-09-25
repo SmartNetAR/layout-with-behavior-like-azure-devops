@@ -43,21 +43,85 @@
     </nav>
     <section id="main-dashboard-content">
         <h1>hello</h1>
+        <section id="section-content">
+            <span onclick="fullSectionContent()">↕</span>
+            <div>list</div>
+            <ul onclick="openModal('content-one')">one</ul>
+            <ul onclick="openModal('content-two')">two</ul>
+            <ul onclick="openModal('content-three')">three</ul>
+            <ul></ul>
+            <div id="modal" class="full-screen-item">
+                <section id="content-one" class="opened">
+                    <header>
+                        <h1>One</h1>
+                        <div class="modal-actions">
+                            <span onclick="showModalFullWidth('content-one')">↕</span>
+                            <span onclick="closeModal('content-one')">X</span>
+                        </div>
+                    </header>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis quidem fugiat, beatae itaque sed, laborum libero voluptas tempore hic mollitia accusamus. Odit officiis placeat sint molestias consectetur aut tenetur voluptatibus?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores maiores nulla laborum alias ullam vel necessitatibus, voluptatem excepturi quibusdam totam facilis, placeat dicta recusandae architecto rerum quos eius consequatur.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro earum eos doloremque ex. Totam sunt voluptatem cum sequi corrupti est, ea ullam adipisci laboriosam. Quaerat nostrum nihil vero et corrupti!</p>
+                </section>
+                <section id="content-two">
+                    <header>
+                        <h1>Two</h1>
+                        <span onclick="closeModal('content-two')"">X</span>
+                    </header>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis quidem fugiat, beatae itaque sed, laborum libero voluptas tempore hic mollitia accusamus. Odit officiis placeat sint molestias consectetur aut tenetur voluptatibus?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores maiores nulla laborum alias ullam vel necessitatibus, voluptatem excepturi quibusdam totam facilis, placeat dicta recusandae architecto rerum quos eius consequatur.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro earum eos doloremque ex. Totam sunt voluptatem cum sequi corrupti est, ea ullam adipisci laboriosam. Quaerat nostrum nihil vero et corrupti!</p>
+                </section>
+                <section id="content-three">
+                    <header>
+                        <h1>Three</h1>
+                        <span onclick="closeModal('content-three')"">X</span>
+                    </header>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis quidem fugiat, beatae itaque sed, laborum libero voluptas tempore hic mollitia accusamus. Odit officiis placeat sint molestias consectetur aut tenetur voluptatibus?</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores maiores nulla laborum alias ullam vel necessitatibus, voluptatem excepturi quibusdam totam facilis, placeat dicta recusandae architecto rerum quos eius consequatur.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro earum eos doloremque ex. Totam sunt voluptatem cum sequi corrupti est, ea ullam adipisci laboriosam. Quaerat nostrum nihil vero et corrupti!</p>
+                </section>
+            </div>
+        </section>
     </section>
     <script>
+        const sidebar = document
+            .querySelector(".sidebar");
+
+        const topBar = document
+            .querySelector(".topbar");
+
+        const main = document
+            .querySelector("#main-dashboard-content");
+
+        const modal = document
+            .querySelector(`#modal`);
+
         function expandSidebar() {
-            const sidebar = document
-                .querySelector(".sidebar");
             sidebar.classList.toggle("nav-expanded")
         }
         function contractSidebar() {
-            const sidebar = document
-                .querySelector(".sidebar");
             sidebar.classList.toggle("nav-contract")
-
-            const main = document
-                .querySelector("#main-dashboard-content");
             main.classList.toggle("nav-contract")
+        }
+        function fullSectionContent() {
+            sidebar.classList.toggle("full-screen-mode")
+            topBar.classList.toggle("full-screen-mode")
+            main.classList.toggle("full-screen-mode")
+        }
+        function openModal(id) {
+            const contentmodal = document
+                .querySelector(`#${id}`);
+            contentmodal.classList.toggle("opened")
+        }
+        function closeModal(id) {
+            const contentmodal = document
+                .querySelector(`#${id}`);
+            contentmodal.classList.toggle("opened")
+            modal.classList.remove("full-screen-item")
+        }
+        function showModalFullWidth(id) {
+            modal.classList.toggle("full-screen-item")
         }
     </script>
 </body>
