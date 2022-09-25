@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Test layout</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <span class="burger" onclick="expandSidebar()">
+            🍔
+        </span>
+        topbar
+    </div>
+    <nav class="sidebar">
+        <section class="title-container">
+            <h1>Top logo</h1>
+        </section>
+        <section class="link-containers">
+            <div class="links">
+                <div class="icon">❤️</div>
+                <span>home</span>
+            </div>
+            <div class="links">
+                <div class="icon">✅</div>
+                <span>roles</span>
+            </div>
+            <div class="links">
+                <div class="icon">💡</div>
+                <span>users</span>
+            </div>
+        </section>
+        <section id="contract-button" onclick="contractSidebar()">
+            <span>⬅</span>
+        </section>
+    </nav>
+    <section id="main-dashboard-content">
+        <h1>hello</h1>
+    </section>
+    <script>
+        function expandSidebar() {
+            const sidebar = document
+                .querySelector(".sidebar");
+            sidebar.classList.toggle("nav-expanded")
+        }
+        function contractSidebar() {
+            const sidebar = document
+                .querySelector(".sidebar");
+            sidebar.classList.toggle("nav-contract")
+
+            const main = document
+                .querySelector("#main-dashboard-content");
+            main.classList.toggle("nav-contract")
+        }
+    </script>
+</body>
+
+</html>
